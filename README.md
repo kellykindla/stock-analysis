@@ -15,8 +15,10 @@
 
 <img width="420" alt="TickerArray" src="https://user-images.githubusercontent.com/92558842/139619040-10fc6f77-98cb-4c89-8d36-f3a47d185c20.png">
 
-We referenced this array throughout our code to analyze each stock individually. Furthermore, we refactored our code slightly to have the capability to accept more data values, thus more stocks, through the code below. 
-	RowCount = Cells(Rows.Count, "A").End(xlUp).Row
+We referenced this array throughout our code to analyze each stock individually. Furthermore, we refactored our code slightly to have the capability to accept more data values, thus more stocks, through the code below.
+
+	'RowCount = Cells(Rows.Count, "A").End(xlUp).Row
+	
 This line is set to find the last value in our data set, giving us the number of cells to loop through in our analysis. With the number of cells in mind, we also looped through the array of tickers to compile data values for each ticker index. For instance, to find the total volume for each stock, we utilized a nested for loop where in the ticker volume increased by each value in the volume column for that ticker index and this repeated until data was collected for each ticker in the array. Also within this nested for loop, we implemented conditionals to find the first price land last price listed for each individual stock and continued this until we had the data for each stock. We later referenced the starting and ending prices to find the yearly return for each stock. The internal component of this nested for loop is shown the code below. 
 
 <img width="575" alt="NestedForLoops_Conditionals" src="https://user-images.githubusercontent.com/92558842/139619126-d5901f01-a593-4e9b-a95b-311f87f68d05.png">
@@ -26,7 +28,9 @@ Still within the loop of the ticker array, we output our data for each ticker in
 <img width="475" alt="DisplayingData" src="https://user-images.githubusercontent.com/92558842/139619159-4a412f70-083b-41fc-87ef-883ca19dff65.png">
 
 We further restructured our code by making it more user friendly. We introduced formatting to aid in the readability of the data results and created options for user interaction through the use of message boxes and buttons. For example, the code below allows us to run the analysis on the year selected by the user: 
-	yearValue = InputBox("What year would you like to run the analysis on?")
+
+	'yearValue = InputBox("What year would you like to run the analysis on?")
+	
 Lastly, to properly refractor our code, we evaluated the run time of our code by using the timer function of VBA to measure how much time elapsed from the moment we receive the users input to the last value being output and formatted, as represented in the summary code below. 
 
 	‘receive user input on what year to analyze
